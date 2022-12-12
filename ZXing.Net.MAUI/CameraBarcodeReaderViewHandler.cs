@@ -7,6 +7,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.ApplicationModel.DataTransfer;
 using Microsoft.Maui.Graphics;
 using Microsoft.Maui.Handlers;
+using Microsoft.Maui.Storage;
 
 namespace ZXing.Net.Maui
 {
@@ -77,11 +78,8 @@ namespace ZXing.Net.Maui
 				var barcodes = BarcodeReader.Decode(e.Data);
 
 				if (barcodes?.Any() ?? false)
-				{
                     VirtualView?.BarcodesDetected(new BarcodeDetectionEventArgs(barcodes));
-				}
-					
-			}
+            }
 		}
 
 		public static void MapOptions(CameraBarcodeReaderViewHandler handler, ICameraBarcodeReaderView cameraBarcodeReaderView)
